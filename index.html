@@ -1,17 +1,17 @@
 <!-- 📄 F:\obsidiangate v3\obsidiangate\web\ads\obsidiangate_ad.html
-     목적: 이미지 없이 Obsidian Gate 광고 랜딩 + 페이지 전역 클릭 시 홈페이지 이동. 버튼 좌우 배치. -->
+     목적: Obsidian Gate 광고 랜딩. 박스 아래 이미지, 좌측 '홈페이지로 이동', 우측 '링크 복사', 페이지 전역 클릭 시 이동. -->
 <!DOCTYPE html>
 <html lang="ko">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Obsidian Gate | 프리미엄 ARPG마켓 아이템·재화 거래소</title>
+    <title>Obsidian Gate | ARPG 아이템·재화 거래소</title>
 
     <!-- SEO -->
     <meta
       name="description"
-      content="디아블로4 · PoE1 & 2 · 토치라이트: 인피니트 등 다양한 핵앤슬래시 장르를 한 곳에서! 판매자와 실시간 메시지, 장바구니, 다국어 지원. Obsidian Gate."
+      content="디아블로4 · PoE1/2 · 토치라이트 인피니트까지 한 곳에서. 판매자와 실시간 메시지, 장바구니 구매, 다국어 지원. Obsidian Gate."
     />
     <link rel="canonical" href="https://obsidiangate.cc/" />
 
@@ -19,7 +19,7 @@
     <meta property="og:type" content="website" />
     <meta
       property="og:title"
-      content="Obsidian Gate | 프리미엄 ARPG마켓 아이템·재화 거래소"
+      content="Obsidian Gate | ARPG 아이템·재화 거래소"
     />
     <meta
       property="og:description"
@@ -50,7 +50,7 @@
         "url": "https://obsidiangate.cc/",
         "potentialAction": {
           "@type": "SearchAction",
-          "target": "https://obsidiangate.cc/?q=\u007Bsearch_term_string\u007D",
+          "target": "https://obsidiangate.cc/?q={search_term_string}",
           "query-input": "required name=search_term_string"
         }
       }
@@ -284,31 +284,30 @@
         </header>
 
         <section class="hero">
-          <h1>프리미엄 ARPG 마켓, 더 빠르고 안전하게</h1>
+          <h1>ARPG 거래, 더 빠르고 안전하게</h1>
           <p class="subtitle">
-            디아블로4 · PoE 1 & 2 · 토치라이트: 인피니트 — 재화·아이템·버스까지
-            한 곳에서.
+            디아블로4 · PoE1/2 · 토치라이트 인피니트 — 재화·아이템·버스까지 한
+            곳에서.
           </p>
 
           <ul class="bullets" aria-label="핵심 기능">
             <li>
               <span class="dot" aria-hidden="true"></span
               ><span
-                >온라인 판매자와 실시간으로 대화, 사진을 주고받으며 거래
-                가능!</span
+                >온라인 판매자와 실시간으로 대화, 사진을 주고받으며
+                구매가능!</span
               >
             </li>
             <li>
               <span class="dot" aria-hidden="true"></span
               ><span
-                >장바구니 기능으로 여러 상품 한번에 주문, 적립 포인트 제도</span
+                >장바구니 기능으로 여러 상품 한번에 주문, 포인트 제도 도입
+                예정</span
               >
             </li>
             <li>
               <span class="dot" aria-hidden="true"></span
-              ><span
-                >전세계 시장에 있는 아이템<br />「대리 구매」요청도 가능</span
-              >
+              ><span>전세계 시장에 있는 아이템 대리 구매요청도 가능</span>
             </li>
           </ul>
 
@@ -344,7 +343,7 @@
           <div class="note">
             단축키: <span class="kbd">G</span> 키로 즉시 이동,
             <span class="kbd">C</span> 키로 링크 복사.
-            <strong>아무 곳이나 눌러도 홈페이지로 바로 이동됩니다.</strong>
+            <strong>아무 곳이나 누르면 홈페이지로 이동됩니다.</strong>
           </div>
 
           <footer>
@@ -382,7 +381,7 @@
         // 버튼
         if (copyBtn) {
           copyBtn.addEventListener("click", function (e) {
-            e.stopPropagation(); // 전역 클릭 이동 방지
+            e.stopPropagation();
             copyToClipboard();
           });
         }
