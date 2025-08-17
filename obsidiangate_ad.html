@@ -1,0 +1,417 @@
+<!-- 📄 F:\obsidiangate v3\obsidiangate\web\ads\obsidiangate_ad.html
+     목적: 이미지 없이 Obsidian Gate 광고 랜딩 + 페이지 전역 클릭 시 홈페이지 이동. 버튼 좌우 배치. -->
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Obsidian Gate | 프리미엄 ARPG마켓 아이템·재화 거래소</title>
+
+    <!-- SEO -->
+    <meta
+      name="description"
+      content="디아블로4 · PoE1 & 2 · 토치라이트: 인피니트 등 다양한 핵앤슬래시 장르를 한 곳에서! 판매자와 실시간 메시지, 장바구니, 다국어 지원. Obsidian Gate."
+    />
+    <link rel="canonical" href="https://obsidiangate.cc/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Obsidian Gate | 프리미엄 ARPG마켓 아이템·재화 거래소"
+    />
+    <meta
+      property="og:description"
+      content="빠르고 안전한 ARPG 거래. 실시간 메시지, 다국어, 장바구니 구매."
+    />
+    <meta property="og:url" content="https://obsidiangate.cc/" />
+    <meta property="og:site_name" content="Obsidian Gate" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta
+      name="twitter:title"
+      content="Obsidian Gate | ARPG 아이템·재화 거래소"
+    />
+    <meta
+      name="twitter:description"
+      content="빠르고 안전한 ARPG 거래. 실시간 메시지, 다국어, 장바구니 구매."
+    />
+
+    <meta name="theme-color" content="#0E0E10" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Obsidian Gate",
+        "url": "https://obsidiangate.cc/",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://obsidiangate.cc/?q=\u007Bsearch_term_string\u007D",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    </script>
+
+    <style>
+      :root {
+        --bg: #0e0e10;
+        --panel: #141416;
+        --muted: #a8a8a8;
+        --text: #ededed;
+        --red: #842a25;
+        --red-d: #6b1815;
+        --ring: #2a2a2e;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        font-family: Pretendard, "Noto Sans KR", -apple-system,
+          BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+          "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+        color: var(--text);
+        background: radial-gradient(
+            80vmax 80vmax at 10% 0%,
+            #1c1c20 0%,
+            transparent 60%
+          ),
+          radial-gradient(
+            60vmax 60vmax at 90% 10%,
+            rgba(132, 42, 37, 0.18) 0%,
+            transparent 55%
+          ),
+          linear-gradient(180deg, #0b0b0d 0%, #0e0e10 100%);
+        background-attachment: fixed;
+        overflow-x: hidden;
+      }
+      .wrap {
+        min-height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 48px 16px;
+      }
+      .card {
+        width: min(860px, 96vw);
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.02),
+          rgba(255, 255, 255, 0.01)
+        );
+        border: 1px solid var(--ring);
+        border-radius: 20px;
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6),
+          inset 0 1px 0 rgba(255, 255, 255, 0.03);
+        padding: 28px;
+        backdrop-filter: blur(6px);
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 700;
+        letter-spacing: 0.4px;
+      }
+      .brand-badge {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+        background: conic-gradient(
+          from 210deg at 50% 50%,
+          var(--red),
+          var(--red-d),
+          var(--red)
+        );
+        box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06),
+          0 10px 24px rgba(132, 42, 37, 0.25);
+      }
+      .brand-name {
+        font-size: 20px;
+      }
+      .hero {
+        margin-top: 14px;
+        padding: 8px 4px 0;
+      }
+      h1 {
+        margin: 0;
+        font-size: clamp(28px, 4.5vw, 44px);
+        line-height: 1.15;
+        letter-spacing: -0.4px;
+      }
+      .subtitle {
+        margin-top: 10px;
+        color: var(--muted);
+        font-size: clamp(14px, 2vw, 16px);
+      }
+      .bullets {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 10px 14px;
+        margin: 22px 0 8px;
+        padding: 0;
+        list-style: none;
+      }
+      .bullets li {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid var(--ring);
+        border-radius: 14px;
+        padding: 12px 14px;
+        font-size: 14px;
+        color: #d8d8d8;
+      }
+      .dot {
+        width: 8px;
+        height: 8px;
+        margin-top: 6px;
+        border-radius: 50%;
+        background: radial-gradient(circle at 30% 30%, #ff938e, #c43c35);
+        box-shadow: 0 0 0 2px rgba(196, 60, 53, 0.15);
+        flex: 0 0 8px;
+      }
+      .img-wrap {
+        margin-top: 18px;
+        border: 1px solid var(--ring);
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+      }
+      .img-wrap img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+      .cta {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-top: 18px;
+      }
+      .btn {
+        appearance: none;
+        border: 0;
+        cursor: pointer;
+        padding: 14px 18px;
+        border-radius: 14px;
+        font-weight: 700;
+        letter-spacing: 0.2px;
+        font-size: 15px;
+        transition: transform 0.08s ease, box-shadow 0.2s ease,
+          opacity 0.2s ease;
+        box-shadow: 0 10px 24px rgba(196, 60, 53, 0.25),
+          inset 0 1px 0 rgba(255, 255, 255, 0.06);
+        background: linear-gradient(180deg, var(--red) 0%, var(--red-d) 100%);
+        color: #fff;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .btn:hover {
+        transform: translateY(-1px);
+      }
+      .btn:active {
+        transform: translateY(0);
+      }
+      .btn.secondary {
+        background: transparent;
+        color: #ededed;
+        border: 1px solid var(--ring);
+        box-shadow: none;
+        margin-left: auto;
+      } /* 오른쪽 정렬 */
+      .note {
+        margin-top: 12px;
+        font-size: 12px;
+        color: #a9a9ae;
+      }
+      footer {
+        margin-top: 24px;
+        padding-top: 16px;
+        border-top: 1px dashed var(--ring);
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        flex-wrap: wrap;
+        color: #9c9ca3;
+        font-size: 12px;
+      }
+      .kbd {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas,
+          "Liberation Mono", monospace;
+        font-size: 12px;
+        padding: 2px 6px;
+        border: 1px solid var(--ring);
+        border-bottom-width: 2px;
+        border-radius: 6px;
+        background: #111216;
+        color: #ededed;
+      }
+      noscript .ns-wrap {
+        margin: 16px auto 0;
+        max-width: 860px;
+        color: #ededed;
+        background: #2a2a2e;
+        border: 1px solid var(--ring);
+        border-radius: 12px;
+        padding: 12px 16px;
+        text-align: center;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .btn {
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <main class="card" role="main" aria-label="Obsidian Gate 광고">
+        <header class="brand" aria-label="브랜드">
+          <div class="brand-badge" aria-hidden="true"></div>
+          <div class="brand-name">Obsidian Gate</div>
+        </header>
+
+        <section class="hero">
+          <h1>프리미엄 ARPG 마켓, 더 빠르고 안전하게</h1>
+          <p class="subtitle">
+            디아블로4 · PoE 1 & 2 · 토치라이트: 인피니트 — 재화·아이템·버스까지
+            한 곳에서.
+          </p>
+
+          <ul class="bullets" aria-label="핵심 기능">
+            <li>
+              <span class="dot" aria-hidden="true"></span
+              ><span
+                >온라인 판매자와 실시간으로 대화, 사진을 주고받으며 거래
+                가능!</span
+              >
+            </li>
+            <li>
+              <span class="dot" aria-hidden="true"></span
+              ><span
+                >장바구니 기능으로 여러 상품 한번에 주문, 적립 포인트 제도</span
+              >
+            </li>
+            <li>
+              <span class="dot" aria-hidden="true"></span
+              ><span
+                >전세계 시장에 있는 아이템<br />「대리 구매」요청도 가능</span
+              >
+            </li>
+          </ul>
+
+          <!-- 박스 아래 이미지 -->
+          <div class="img-wrap" aria-label="서비스 예시 이미지">
+            <img
+              src="https://i.imgur.com/6eVJXjW.jpeg"
+              alt="Obsidian Gate 서비스 예시"
+              loading="lazy"
+            />
+          </div>
+
+          <!-- 버튼 좌우 배치: 왼쪽 이동, 오른쪽 링크복사 -->
+          <div class="cta">
+            <a
+              id="go-home"
+              class="btn"
+              href="https://obsidiangate.cc/?utm_source=ad_html&utm_medium=landing&utm_campaign=2025_aug"
+              rel="noopener noreferrer"
+              aria-label="Obsidian Gate 홈페이지로 이동"
+              >홈페이지로 이동</a
+            >
+            <button
+              id="copy-link"
+              class="btn secondary"
+              type="button"
+              aria-label="링크 복사"
+            >
+              링크 복사
+            </button>
+          </div>
+
+          <div class="note">
+            단축키: <span class="kbd">G</span> 키로 즉시 이동,
+            <span class="kbd">C</span> 키로 링크 복사.
+            <strong>아무 곳이나 눌러도 홈페이지로 바로 이동됩니다.</strong>
+          </div>
+
+          <footer>
+            <div>© 2025 Obsidian Gate. All rights reserved.</div>
+            <div>
+              안전한 거래를 위해 검증된 소규모 판매자들로만 운영되고 있습니다.
+            </div>
+          </footer>
+        </section>
+      </main>
+    </div>
+
+    <noscript>
+      <div class="ns-wrap">
+        JavaScript가 비활성화되어 있습니다.
+        <a
+          href="https://obsidiangate.cc/?utm_source=ad_html&utm_medium=noscript"
+          >여기</a
+        >를 눌러 이동하세요.
+      </div>
+    </noscript>
+
+    <script>
+      (function () {
+        const go = document.getElementById("go-home");
+        const copyBtn = document.getElementById("copy-link");
+        const url = go ? go.href : "https://obsidiangate.cc/";
+
+        // 단축키
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "g" || e.key === "G") window.location.href = url;
+          if (e.key === "c" || e.key === "C") copyToClipboard();
+        });
+
+        // 버튼
+        if (copyBtn) {
+          copyBtn.addEventListener("click", function (e) {
+            e.stopPropagation(); // 전역 클릭 이동 방지
+            copyToClipboard();
+          });
+        }
+
+        // 페이지 아무 곳이나 클릭 시 이동 (복사 버튼 제외)
+        document.addEventListener("click", function (e) {
+          if (!e.target.closest("#copy-link")) window.location.href = url;
+        });
+
+        async function copyToClipboard() {
+          try {
+            await navigator.clipboard.writeText(url);
+            flash(copyBtn, "복사됨");
+          } catch (_) {
+            flash(copyBtn, "복사 실패");
+          }
+        }
+
+        function flash(el, text) {
+          if (!el) return;
+          const orig = el.textContent;
+          el.textContent = text;
+          el.style.opacity = "0.9";
+          setTimeout(function () {
+            el.textContent = orig;
+            el.style.opacity = "1";
+          }, 900);
+        }
+      })();
+    </script>
+  </body>
+</html>
